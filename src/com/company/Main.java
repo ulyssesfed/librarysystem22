@@ -1,17 +1,26 @@
 package com.company;
 
-import com.sun.org.apache.xpath.internal.objects.XNull;
-
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 public class Main {
     private static File myFile = new File("libraryBooks.txt");
     private static ArrayList<String> books = new ArrayList<>();
+    private static String authList = new String();
     private static ArrayList<String> bookNum = new ArrayList<>();
+    private static String status = new String();
 
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws Exception {
+        login.main();
+
         int a = 0;
         while (a == 0) {
             String checkAdd = getInput("do you want to check the list or overwrite it?");
@@ -41,12 +50,12 @@ public class Main {
                 if (!cont.equals("yes")) {
                     a++;
                 }
-            } else{
+            } else {
                 printLibrary();
-            String cont = getInput("do you wnt to continue?");
-            if (!cont.equals("yes")) {
-                a++;
-            }
+                String cont = getInput("do you wnt to continue?");
+                if (!cont.equals("yes")) {
+                    a++;
+                }
             }
         }
     }
@@ -105,4 +114,7 @@ public class Main {
             e.printStackTrace();
         }
     }
+
+
 }
+
